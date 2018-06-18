@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Java Script Exercises - Functions</title>
+    <style>
+        input {
+            font-size: 10px;
+            margin: 10px 1px 0;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <input class="numberInput"
+        type="text">
+    <p></p>
+
+    <script>
+        var para = document.querySelector("p");
+        var input = document.querySelector(".numberInput");
+
+        input.onchange = function () {
+            var num = input.value;
+            if (isNaN(num)) {
+                para.textContent = "Please enter a number";
+            }
+            else {
+                para.textContent = num + ' squared is ' + squared(num) + "   .     " +
+                    num + ' cubed is ' + cubed(num) + "   .   " +
+                    num + ' factorial is ' + factorial(num) + "   .   ";
+            }
+        }
+
+        function squared(num) {
+            return num * num;
+        }
+
+        function cubed(num) {
+            return num * num * num;
+        }
+
+        function factorial(num) {
+            let fact = 1;
+            for (let i = 1; i <= num; i++) {
+                fact *= i;
+            }
+            return fact;
+        }
+
+
+    </script>
+</body>
+
+</html>
