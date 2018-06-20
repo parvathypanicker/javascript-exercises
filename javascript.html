@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Java Script Exercises</title>
+    <style>
+        h1 {
+            font-size: 25px;
+        }
+
+        h2 {
+            font-size: 15px;
+        }
+
+        input {
+            min-width: 72px;
+            min-height: 36px;
+            border: 1px solid grey;
+        }
+
+        label,
+        input {
+            display: block;
+        }
+
+        input {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <h1>Demo: Practising JavaScript</h1>
+    <h2>Program to output square, cube and factorial of input number</h2>
+    <label for="inp-number">Please enter your number below</label>
+    <input placeholder="Number"
+        id="inp-number">
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <script>
+        var labels = document.querySelectorAll("p");
+        var input = document.querySelector("input");
+        input.focus();
+
+
+        input.onchange = function () {
+            var num = input.value;
+            if (isNaN(num)) {
+                labels[0].textContent = "Please enter a number";
+                labels[1].textContent = "";
+                labels[2].textContent = "";
+            }
+            else {
+                labels[0].textContent = num + ' squared is ' + squared(num) + " .";
+                labels[1].textContent = num + ' cubed is ' + cubed(num) + " .";
+                labels[2].textContent = num + ' factorial is ' + factorial(num) + " .";
+                num + ' cubed is ' + cubed(num) + "   .   " +
+                    num + ' factorial is ' + factorial(num) + "   .   ";
+            }
+        }
+
+        function squared(num) {
+            return num * num;
+        }
+
+        function cubed(num) {
+            return num * num * num;
+        }
+
+        function factorial(num) {
+            let fact = 1;
+            for (let i = 1; i <= num; i++) {
+                fact *= i;
+            }
+            return fact;
+        }
+
+
+    </script>
+</body>
+
+</html>

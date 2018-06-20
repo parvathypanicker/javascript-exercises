@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Java Script Exercises </title>
+    <style>
+        h1 {
+            font-size: 25px;
+        }
+        h2 {
+            font-size: 15px;
+        }
+
+        input,
+        button {
+            min-width: 72px;
+            min-height: 36px;
+            border: 1px solid grey;
+        }
+
+        label,
+        input,
+        button {
+            display: block;
+        }
+
+        input {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!--String Input-->
+    <h1>Demo: Practising functions in JS</h1>
+    <h2>Program for repeating the input string 'number' times  </h2>
+    <label for="inp-string">Please enter your string below</label>
+    <input placeholder="String"
+        id="inp-string">
+    <label for="num">Number</label>
+    <input placeholder="Number"
+        id="num">
+    <button>Confirm</button>
+    <p></p>
+
+    <script>
+
+        var inputs = document.querySelectorAll("input");
+        var button = document.querySelector("button");
+        var label = document.querySelector("p");
+        button.addEventListener("click", onClick);
+
+        inputs[0].focus();
+
+        function onClick() {
+            if (inputsAreEmpty()) {
+                label.textContent = 'Error: one or both inputs are empty.';
+                return;
+            }
+            repeatStringNumTimes();
+        }
+
+        function inputsAreEmpty() {
+            if (getString() === "" || getNumber() === "") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function repeatStringNumTimes() {
+            var string = getString();
+            var number = getNumber();
+            var i = 1;
+            var output = "";
+            if (number < 0) {
+                label.textContent = "The text is not repeated. Please give a positive number";
+            }
+            else {
+                while (i <= number) {
+                    output += string + " ";
+                    i++;
+                }
+                label.textContent = "The text is repeated  " + number + " times: " + output;
+            }
+        }
+
+        function getString() {
+            return inputs[0].value;
+        }
+
+        function getNumber() {
+            return inputs[1].value;
+        }
+
+
+    </script>
+</body>
+
+</html>

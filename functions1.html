@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Java Script Exercises: Functions </title>
+    <style>
+        h1 {
+            font-size: 25px;
+        }
+        h2 {
+            font-size: 15px;
+        }
+
+        input {
+            min-width: 72px;
+            min-height: 36px;
+            border: 1px solid grey;
+        }
+
+        label,
+        input {
+            display: block;
+        }
+
+        input {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!--String Input-->
+    <h1>Demo: Practising functions in JS</h1>
+    <h2>Program to output first letter capitalized string and last character of the input string</h2>
+    <label for="inp-string">Please enter your string below</label>
+    <input placeholder="String"
+        id="inp-string">
+    <p></p>
+
+    <script>
+        var label = document.querySelector("p");
+        var input = document.querySelector("input");
+        input.focus();
+
+        input.onchange = function () {
+            var str = input.value;
+            if (!isNaN(str.charAt(0) * 1)) {
+                return label.textContent = "Please enter a string."
+            }
+            else
+                label.textContent = 'The first letter capitalized string is ' + firstLetterCapitalize(str) + "   .  " +
+                    'The last letter of the string is ' + lastLetter(str) + ".";
+
+
+        }
+        // Function to capitalize first letter of the string.
+        function firstLetterCapitalize(str) {
+            let i = 0;
+            let character = '';
+            let output = '';
+            while (i < str.length) {
+                // Extracting characters from input string and checking the case of each character.
+                character = str.charAt(i);
+                if (i == 0 && character != character.toUpperCase()) {
+                    output += character.toUpperCase();
+                }
+                else if (i != 0 && character == character.toUpperCase()) {
+                    output += character.toLowerCase();
+                }
+                else {
+                    output += character;
+                }
+                i++;
+            }
+            return output;
+        }
+
+        function lastLetter(str) {
+            let i = str.length - 1;
+            let output = '';
+            output = str[i];
+            return output;
+
+        }
+
+    </script>
+</body>
+
+</html>
