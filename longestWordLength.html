@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Java Script Exercises: Functions </title>
+    <style>
+        h1 {
+            font-size: 25px;
+        }
+
+        h2 {
+            font-size: 15px;
+        }
+
+        input {
+            min-width: 72px;
+            min-height: 36px;
+            border: 1px solid grey;
+        }
+
+        label,
+        input {
+            display: block;
+        }
+
+        input {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!--String Input-->
+    <h1>Demo: Practising functions in JS</h1>
+    <h2>Program to output length of longest word in the input string</h2>
+    <label for="inp-string">Please enter your string below</label>
+    <input placeholder="String"
+        id="inp-string">
+    <p></p>
+
+    <script>
+        var label = document.querySelector("p");
+        var input = document.querySelector("input");
+        input.focus();
+
+        input.onchange = function () {
+            var str = input.value;
+            if (!isNaN(str.charAt(0) * 1)) {
+                return label.textContent = "Please enter a string."
+            }
+            else
+                label.textContent = 'The length of longest word is ' + lengthOfLongestWord(str) + ".";
+
+        }
+        // Function to capitalize first letter of the string.
+        function lengthOfLongestWord(str) {
+            var strSplit = str.split(" ");
+            var longestWord = 0;
+            i=0;
+            while (i < strSplit.length) {
+                if (strSplit[i].length > longestWord) {
+                    longestWord = strSplit[i].length;
+                }
+                i++;
+            }
+            return longestWord;
+        }
+    </script>
+</body>
+
+</html>
